@@ -1,19 +1,18 @@
-function cascadeFunction(startNum, finalNum) {
-    let evenResult = [];
-    let result = [];
-
-    for (let i = startNum; i <= finalNum; i++) {
-        if (i % 2 == 0) {
-            evenResult.push(i);
+function cascade() {
+    function sum(startRange, finalRange) {
+        let sumNum = 0;
+        for (let i = startRange; i <= finalRange; i++) {
+            sumNum += i;
         }
+        return sumNum;
     }
-    function deleteOn2EvenNum() {
-        for (let evens of evenResult) {
+    function average(startRange, finalRange) {
+        let sumNumber = sum(startRange, finalRange);
+        let averageNum = sumNumber / (finalRange - (startRange - 1));
+        return averageNum;
 
-            result.push(evens / 2);
-        }
-        return result;
-    } console.log(deleteOn2EvenNum(evenResult));
+    }
+    console.log(sum(1, 10));
+    console.log(average(1, 10));
 }
-cascadeFunction(1, 20);
-
+cascade();
