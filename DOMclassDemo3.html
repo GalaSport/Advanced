@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red {
+            background-color: red;
+        }
+
+        .border {
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <button>Click Me</button>
+    <div id = 'main' class = 'red border'>
+        <span id ='target'>Hello, world</span>
+    </div>
+    <button id = 'btn2'>Action</button>
+    <button id = 'btn3'>ClassList</button>
+    <ul>
+        <li>First</li>
+        <li>Second</li>
+        <li>Third</li>
+        <li>Fourth</li>
+    </ul>
+    <script>
+        document.getElementById('btn3').addEventListener('click', ()=>{
+            const main = document.getElementById('main');
+
+            if(main.classList.contains('red')){
+                main.classList.remove('red')
+            }else{
+                main.classList.add('red');            //main.classList.toggle('red')-вместо с if()
+            }
+        })
+        document.querySelector('button').addEventListener('click', ()=>{
+            
+            const answer = document.createElement('answer');
+            answer.textContent = 'Zdravstvui, Gala!';
+
+            const span = document.getElementById('target');
+
+            span.replaceWith(answer);
+        });
+        document.getElementById('btn2').addEventListener('click', ()=>{
+            const li = document.createElement('li');
+            li.textContent = 'three and half';
+
+            const list = document.querySelector('ul');
+            list.children[2].after(li);
+        });
+
+    </script>
+</body>
+</html>
