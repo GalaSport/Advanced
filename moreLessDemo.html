@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+
+<body>
+    <p>Lorem, ipsum dolor sit <button id="more">More</button><span class="more hidden"> consectetur adipisicing elit. Assumenda
+            quos aut corporis sequi debitis esse quis vero dolores harum dolor culpa
+            labore, ducimus laboriosam consequuntur numquam 
+            officia illum est odit!<button id="less">Less</button></span></p>
+
+</body>
+    <script>
+        document.getElementById('more').addEventListener('click', (e) => {
+        document.querySelector('.more').classList.toggle('hidden');
+        e.target.classlist.toggle('hidden');
+        });
+        document.getElementById('less').addEventListener('click', () => {
+        document.querySelector('.more').classList.toggle('hidden');
+        document.getElementById('more').classlist.toggle('hidden');
+        });
+    </script>
+</html>
