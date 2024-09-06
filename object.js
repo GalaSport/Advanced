@@ -1,10 +1,15 @@
-function solve(array){
-    let bookCharacter = {};
-    for(let i = 0; i < array.length; i+=2){
-         let name = array[i];
-         let age = Number(array[i+1]);
-         bookCharacter[name] = age;
-    }
-console.log(bookCharacter);
+function solve(object){
+    object.age = 8;
+    object.owner = "Snezi";
 }
-solve(["Tommy", "11", "Anika", "9", "Pippi", "10"]);
+let object1 = {
+    name: "Mata",
+    age: 7,
+    owner: "Gala"
+}
+solve(object1);
+console.log(object1.age);
+console.log(object1.owner);
+console.log(object1);
+
+
