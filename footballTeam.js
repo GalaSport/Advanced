@@ -31,31 +31,24 @@ class footballTeam{
     
     signContract(selectedPlayer){//string "{name}/{playerOffer}"
 
-        selectedPlayer.map(p => {
+        let selPlayer = selectedPlayer.map(p => {
             let [name, playerOffer] = p.split('/');
             playerOffer = Number(playerOffer);
             
         let checkPlayer = this.invitedPlayers.find((el) => el.name == name);
         if(!checkPlayer){
-            throw new Error (`${selectedPlayer} is not invited to the selection list!`);
+            throw new Error (`${selPlayer} is not invited to the selection list!`);
         }
         });
-
-
-//If the playerOffer selected by the manager for a given player
-// is less than the value recorded in the array invitedPlayers, 
-//an error with the following message should be thrown:
-
-"The manager's offer is not enough to sign a contract with {name}, {priceDifference} million more are needed to sign the contract!"
-
-//priceDifference - is the difference between playerValue and playerOffer.
-
-//Otherwise, if the above conditions are not met, you must replace playerValue with the string "Bought"
-
-//Finally, you need to return the string in the following format:
-
-"Congratulations! You sign a contract with {BoughtPlayer} for {BuyingPrice} million dollars."
-
+        if(playerOffer < checkPlayer.playerValue){
+            let priceDifference = checkPlayer.playerValue - playerOffer;
+            throw new Error (`The manager's offer is not enough to sign a contract with 
+                 ${checkPlayer.name}, ${priceDifference} million more are needed to sign the contract!`);
+        }else{
+            this.invitedPlayers.playerValue = "Bought";
+            return `Congratulations! You sign a contract 
+            with ${checkPlayer.name} for ${this.invitedPlayers.playerValue} million dollars.`
+        }
     }
 
     ageLimit(name, age){
