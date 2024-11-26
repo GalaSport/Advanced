@@ -75,17 +75,28 @@ class footballTeam{
 
     transferWindowResult(){
 
+        let result = ["Players list:"];
+        const sortedArray = this.invitedPlayers.sort((a, b) => a.name.localeCompare(b.name));
+       
+        for(let {name, playerValue} of sortedArray){
+            result.push(`Player ${name}-${playerValue}`); 
+        }
+    
+        return result.join("\n");
+   
     }
 
 }
 let fTeam = new footballTeam("Barcelona", "Spain");
-console.log(fTeam.newAdditions(["Kylian Mbappé/23/160", "Lionel Messi/35/50", "Pau Torres/25/52"]));
-console.log(fTeam.ageLimit("Lionel Messi", 33 ));
-console.log(fTeam.ageLimit("Kylian Mbappé", 30));
-console.log(fTeam.ageLimit("Pau Torres", 26));
+console.log(fTeam.newAdditions([ "Lionel Messi/35/50",
+"Pau Torres/25/52","Kylian Mbappé/23/160", ]));
 console.log(fTeam.signContract("Kylian Mbappé/240"));
+console.log(fTeam.ageLimit("Kylian Mbappé", 30));
+console.log(fTeam.transferWindowResult());
 // You successfully invite Kylian Mbappé, Lionel Messi, Pau Torres.
-// Lionel Messi is above age limit!
-// Kylian Mbappé will sign a full 5 years contract for Barcelona in Spain!
-// Pau Torres will sign a contract for 1 years with Barcelona in Spain!
 // Congratulations! You sign a contract with Kylian Mbappé for 240 million dollars.
+// Kylian Mbappé will sign a full 5 years contract for Barcelona in Spain!
+// Players list:
+// Player Kylian Mbappé-Bought
+// Player Lionel Messi-50
+// Player Pau Torres-52
